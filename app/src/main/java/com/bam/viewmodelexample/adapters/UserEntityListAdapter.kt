@@ -6,18 +6,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bam.viewmodelexample.R
 import com.bam.viewmodelexample.databinding.UserItemBinding
-import com.bam.viewmodelexample.room.UserEntity
+import com.bam.viewmodelexample.room.UserData
 
 class UserEntityListAdapter : RecyclerView.Adapter<UserEntityListAdapter.ViewHolder>() {
 
-    var items: List<UserEntity> = mutableListOf()
+    var items: List<UserData> = mutableListOf()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
 
-    private var itemClick: (UserEntity) -> Unit = {}
-    fun itemClick(listener: (UserEntity) -> Unit) {
+    private var itemClick: (UserData) -> Unit = {}
+    fun itemClick(listener: (UserData) -> Unit) {
         itemClick = listener
     }
 

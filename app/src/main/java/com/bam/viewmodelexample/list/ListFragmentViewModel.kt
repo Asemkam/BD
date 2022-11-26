@@ -1,12 +1,11 @@
-package com.bam.viewmodelexample
+package com.bam.viewmodelexample.list
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.room.Room
 import com.bam.viewmodelexample.room.DbConnection
-import com.bam.viewmodelexample.room.UserEntity
+import com.bam.viewmodelexample.room.UserData
 import kotlinx.coroutines.launch
 
 class ListFragmentViewModel(application: Application) : AndroidViewModel(application) {
@@ -19,16 +18,9 @@ class ListFragmentViewModel(application: Application) : AndroidViewModel(applica
     val list = userEntityDao.getAll()
 
 
-    init {
-        val list = mutableListOf<UserEntity>()
-        for (i in 1..100){
-            list.add(UserEntity(name = "name$i", age = i))
-        }
-
+    fun insert(userData: UserData){
         viewModelScope.launch {
-            list.forEach {
-                userEntityDao.insert(it)
-            }
+            userEntityDao.insert(userData)
         }
     }
 

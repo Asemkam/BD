@@ -2,17 +2,17 @@ package com.bam.viewmodelexample.room
 
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
+import androidx.room.Dao
 
 @Dao
-interface UserEntityDao {
+interface UserDao {
 
-    @Query("select * from UserEntity")
-    fun getAll(): LiveData<List<UserEntity>>
+    @Query("select * from UserData")
+    fun getAll(): LiveData<List<UserData>>
 
     @Insert(onConflict = REPLACE)
-    suspend fun insert(entity: UserEntity)
+    suspend fun insert(entity: UserData)
 }

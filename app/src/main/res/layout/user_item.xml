@@ -5,7 +5,7 @@
     <data>
       <variable
           name="user"
-          type="com.bam.viewmodelexample.room.UserEntity" />
+          type="com.bam.viewmodelexample.room.UserData" />
 
     </data>
 
